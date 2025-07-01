@@ -12,7 +12,7 @@ if __name__ == "__main__":
     print("🔄 Generación automática de datos: Activa")
     
     uvicorn.run(
-        app,
+        "main:app",
         host="0.0.0.0",
         port=8000,
         reload=True,  # Reinicia automáticamente en desarrollo

@@ -7,7 +7,7 @@ from decimal import Decimal
 class PacienteBase(BaseModel):
     nombre: str = Field(..., max_length=100)
     edad: int = Field(..., ge=0, le=120)
-    genero: str = Field(..., regex="^[MF]$")
+    genero: str = Field(..., pattern="^[MF]$")
 
 class PacienteCreate(PacienteBase):
     activo: bool = True
