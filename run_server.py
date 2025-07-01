@@ -11,4 +11,12 @@ if __name__ == "__main__":
     print("📚 Documentación en: http://localhost:8000/docs")
     print("🔄 Generación automática de datos: Activa")
     
-    uvic
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8000,
+        reload=True,  # Reinicia automáticamente en desarrollo
+        reload_dirs=["./"]  # Directorio a monitorear
+    )
+
+
