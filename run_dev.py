@@ -56,10 +56,10 @@ def run_server():
 
 if __name__ == "__main__":
     # Ejecutar inicialización de la base de datos primero
-    run_init_db()
+    #run_init_db()
     
     # Pequeña pausa para que los mensajes sean legibles
-    time.sleep(1)
+    #time.sleep(1)
     
     # Iniciar el servidor
     run_server()

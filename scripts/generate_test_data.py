@@ -36,7 +36,7 @@ def generate_continuous_data():
                 print(f"Paciente {paciente_id}: SpO2={medicion.spo2}%, BPM={medicion.bpm}, Temp={medicion.temperatura}°C")
             
             # Esperar antes de la siguiente iteración
-            time.sleep(random.randint(30, 120))  # Entre 30 segundos y 2 minutos
+            time.sleep(random.randint(10, 40))  # Entre 30 segundos y 2 minutos
             
     except KeyboardInterrupt:
         print("\nDeteniendo generación de datos...")

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Dashboard de Monitoreo</h1>
+    
+    <div class="row">
+        <!-- Tarjeta de Pacientes -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Pacientes</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                                <th>Género</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for paciente in pacientes %}
+                            <tr>
+                                <td>{{ paciente.nombre }}</td>
+                                <td>{{ paciente.edad }}</td>
+                                <td>{{ paciente.genero }}</td>
+                                <td>
+                                    <a href="/paciente/{{ paciente.id }}" class="btn btn-sm btn-info">Ver</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tarjeta de Alertas -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Alertas Activas</h3>
+                </div>
+                <div class="card-body">
+                    {% for alerta in alertas %}
+                    <div class="alert alert-{{ 'danger' if alerta.tipo == 'roja' else 'warning' }}">
+                        <strong>Paciente ID: {{ alerta.id_paciente }}</strong><br>
+                        {{ alerta.mensaje }}<br>
+                        <small>{{ alerta.timestamp }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
